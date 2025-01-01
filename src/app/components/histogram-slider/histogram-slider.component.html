@@ -1,6 +1,6 @@
 <div
   class="chart-container"
-  [style]="{ width: width + 'px', height: width * 0.1 + 'px' }"
+  [style]="{ width: width + 'px', height: getHeightFromWidth(width) + 'px' }"
   style="margin-bottom: -22px"
 >
   <canvas id="MyChart">{{ chart }}</canvas>

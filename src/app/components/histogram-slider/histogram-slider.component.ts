@@ -16,52 +16,85 @@ export class HistogramSliderComponent implements OnInit {
   secondPickerStartingPoint = 0;
   secondPicker = 0;
 
-  width = 500;
+  width = 200;
 
+  // data: any = [
+  //   { val: 0, qty: 0 },
+  //   { val: 10, qty: 1 },
+  //   { val: 20, qty: 2 },
+  //   { val: 30, qty: 3 },
+  //   { val: 40, qty: 4 },
+  //   { val: 50, qty: 6 },
+  //   { val: 60, qty: 8 },
+  //   { val: 70, qty: 11 },
+  //   { val: 80, qty: 15 },
+  //   { val: 90, qty: 20 },
+  //   { val: 100, qty: 26 },
+  //   { val: 110, qty: 33 },
+  //   { val: 120, qty: 41 },
+  //   { val: 130, qty: 50 },
+  //   { val: 140, qty: 60 },
+  //   { val: 150, qty: 71 },
+  //   { val: 160, qty: 83 },
+  //   { val: 170, qty: 95 },
+  //   { val: 180, qty: 108 },
+  //   { val: 190, qty: 120 },
+  //   { val: 200, qty: 132 },
+  //   { val: 210, qty: 143 },
+  //   { val: 220, qty: 153 },
+  //   { val: 230, qty: 162 },
+  //   { val: 240, qty: 170 },
+  //   { val: 250, qty: 175 }, // Peak
+  //   { val: 260, qty: 170 },
+  //   { val: 270, qty: 162 },
+  //   { val: 280, qty: 153 },
+  //   { val: 290, qty: 143 },
+  //   { val: 300, qty: 132 },
+  //   { val: 310, qty: 120 },
+  //   { val: 320, qty: 108 },
+  //   { val: 330, qty: 95 },
+  //   { val: 340, qty: 83 },
+  //   { val: 350, qty: 71 },
+  //   { val: 360, qty: 60 },
+  //   { val: 370, qty: 50 },
+  //   { val: 380, qty: 41 },
+  //   { val: 390, qty: 33 },
+  //   { val: 400, qty: 26 },
+  //   { val: 410, qty: 20 },
+  //   { val: 420, qty: 15 },
+  //   { val: 430, qty: 11 },
+  //   { val: 440, qty: 8 },
+  //   { val: 450, qty: 6 },
+  //   { val: 460, qty: 4 },
+  //   { val: 470, qty: 3 },
+  //   { val: 480, qty: 2 },
+  //   { val: 490, qty: 1 },
+  //   { val: 500, qty: 0 },
+  // ];
+  
+  //Make data only 20 values
   data: any = [
-    { val: 0, qty: 30 },
+    { val: 0, qty: 0 },
     { val: 10, qty: 1 },
     { val: 20, qty: 2 },
     { val: 30, qty: 3 },
     { val: 40, qty: 4 },
-    { val: 50, qty: 5 },
-    { val: 60, qty: 6 },
-    { val: 70, qty: 7 },
-    { val: 80, qty: 8 },
+    { val: 50, qty: 6 },
+    { val: 60, qty: 3 },
+    { val: 70, qty: 0 },
+    { val: 80, qty: 4 },
     { val: 90, qty: 9 },
-    { val: 100, qty: 10 },
-    { val: 110, qty: 11 },
-    { val: 120, qty: 11 },
+    { val: 100, qty: 26 },
+    { val: 110, qty: 20 },
+    { val: 120, qty: 15 },
     { val: 130, qty: 10 },
-    { val: 140, qty: 9 },
-    { val: 150, qty: 8 },
-    { val: 160, qty: 7 },
+    { val: 140, qty: 10 },
+    { val: 150, qty: 5 },
+    { val: 160, qty: 8 },
     { val: 170, qty: 6 },
-    { val: 180, qty: 5 },
-    { val: 190, qty: 4 },
-    { val: 200, qty: 3 },
-    { val: 210, qty: 2 },
-    { val: 220, qty: 1 },
-    { val: 230, qty: 0 },
-    { val: 240, qty: 0 },
-    { val: 250, qty: 1 },
-    { val: 260, qty: 2 },
-    { val: 270, qty: 3 },
-    { val: 280, qty: 4 },
-    { val: 290, qty: 5 },
-    { val: 300, qty: 6 },
-    { val: 310, qty: 7 },
-    { val: 320, qty: 8 },
-    { val: 330, qty: 9 },
-    { val: 340, qty: 10 },
-    { val: 350, qty: 11 },
-    { val: 360, qty: 11 },
-    { val: 370, qty: 10 },
-    { val: 380, qty: 9 },
-    { val: 390, qty: 8 },
-    { val: 400, qty: 7 },
+    { val: 180, qty: 0 },
+    { val: 190, qty: 1 },
   ];
-
   lightColor = 'rgb(0, 0, 0, .05)';
   darkColor = 'rgb(135, 171, 255)';
 
@@ -167,5 +200,9 @@ export class HistogramSliderComponent implements OnInit {
   secondPickerChanged(event: any) {
     this.secondPicker = event.target.value;
     this.updateDataColors();
+  }
+
+  getHeightFromWidth(width: number) {
+    return 0.2 * width > 30 ? 0.2 * width : 30;
   }
 }
