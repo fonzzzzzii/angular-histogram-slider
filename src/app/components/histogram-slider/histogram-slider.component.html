@@ -1,11 +1,24 @@
 <div
   class="chart-container"
   [style]="{ width: width + 'px', height: width * 0.1 + 'px' }"
-  style="margin-bottom: -22px;"
+  style="margin-bottom: -22px"
 >
   <canvas id="MyChart">{{ chart }}</canvas>
 </div>
-<mat-slider min="200" max="500" [style]="{ width: width + 'px' }">
-  <input value="300" matSliderStartThumb />
-  <input value="400" matSliderEndThumb />
+<mat-slider
+  [min]="getDataMinVal()"
+  [max]="getDataMaxVal()"
+  [step]="getDataStep()"
+  [style]="{ width: width + 'px' }"
+>
+  <input
+    (change)="firstPickerChanged($event)"
+    [value]="firstPickerStartingPoint"
+    matSliderStartThumb
+  />
+  <input
+    (change)="secondPickerChanged($event)"
+    [value]="secondPickerStartingPoint"
+    matSliderEndThumb
+  />
 </mat-slider>
